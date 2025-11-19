@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBaseUrl: 'http://python-api:8000'
+  apiBaseUrl: 'http://127.0.0.1:8050/',
 };

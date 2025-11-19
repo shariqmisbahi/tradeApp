@@ -116,11 +116,10 @@ cd pythonAPI
 python -m venv .venv
 # Windows:
 .venv\Scripts\activate
-# Linux/mac:
-# source .venv/bin/activate
+
 
 pip install -r requirements.txt
-uvicorn app.main:app --reload --port 8000
+uvicorn app.main:app --reload --port 8050
 
 
 Frontend local run:

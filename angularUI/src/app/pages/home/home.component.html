@@ -1,29 +1,13 @@
-<div class="ust-chip">FastAPI + Angular Starter</div>
-<div class="ust-title">
-  Full-stack Playground 🚀
-</div>
-<div class="ust-subtitle">
-  Click the button below to call the Python FastAPI backend from Angular.
-  This is wired for both <strong>local</strong> and <strong>Docker</strong> environments.
-</div>
+<div class="ust-container">
+  <h1 class="ust-title">UST Trade App</h1>
 
-<button class="ust-button" (click)="callBackend()">
-  <span>Call FastAPI</span>
-  <span>→</span>
-</button>
+  <button class="ust-button" (click)="callBackend()">Call Backend</button>
 
-<div class="ust-output" *ngIf="helloMessage$ | async as msg">
-  <strong>Backend says:</strong>
-  <div>{{ msg }}</div>
-</div>
+  <div class="ust-output" *ngIf="helloMessage$ | async as msg">
+    {{ msg }}
+  </div>
 
-<div class="ust-output" *ngIf="health$ | async as health">
-  <strong>Health:</strong>
-  <div>Status: {{ health.status }} | Env: {{ health.env }}</div>
-</div>
-
-<div class="ust-badge-row">
-  <div class="ust-badge">PythonAPI → http://localhost:8000</div>
-  <div class="ust-badge">AngularUI → http://localhost:4200</div>
-  <div class="ust-badge">Docker: python-api:8000</div>
+  <div class="ust-output" *ngIf="health$ | async as health">
+    API Health: {{ health }}
+  </div>
 </div>

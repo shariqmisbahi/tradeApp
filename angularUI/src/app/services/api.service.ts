@@ -1,33 +1,29 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
-import { environment } from '../../environments/environment';
+import { Injectable, inject } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
-interface HelloResponse {
+export interface HelloResponse {
   message: string;
 }
 
-interface HealthResponse {
-  status: string;
-  env: string;
-}
-
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class ApiService {
-  private readonly baseUrl = environment.apiBaseUrl;
+  private readonly http = inject(HttpClient);
+  private readonly baseUrl = 'http://127.0.0.1:8050'; // or your actual API base URL
 
-  constructor(private readonly http: HttpClient) {}
-
-  getHello(name?: string): Observable<string> {
-    const params = name ? { name } : {};
-    return this.http
-      .get<HelloResponse>(`${this.baseUrl}/api/v1/hello`, { params })
-      .pipe(map(res => res.message));
+  getHealth(): Observable<string> {
+    return this.http.get<string>(`${this.baseUrl}/health`);
   }
 
-  getHealth(): Observable<HealthResponse> {
-    return this.http.get<HealthResponse>(`${this.baseUrl}/health`);
+  getHello(name?: string): Observable<string> {
+    let params = new HttpParams();
+    if (name) {
+      params = params.set('name', name);
+    }
+
+    return this.http
+      .get<HelloResponse>(`${this.baseUrl}/api/v1/hello`, { params })
+      .pipe(map((res: HelloResponse) => res.message));
   }
 }
