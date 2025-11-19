@@ -1,0 +1,108 @@
+:root {
+  --ust-primary: #007681;
+  --ust-secondary: #00a18f;
+  --ust-bg: #f4f7fb;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--ust-bg);
+}
+
+.ust-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.ust-card {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+  padding: 2.5rem 2.75rem;
+  max-width: 640px;
+  width: 100%;
+  border-top: 4px solid var(--ust-primary);
+}
+
+.ust-title {
+  font-size: clamp(1.5rem, 2.2vw, 1.9rem);
+  font-weight: 650;
+  color: #1b2833;
+  margin-bottom: 0.5rem;
+}
+
+.ust-subtitle {
+  font-size: 0.95rem;
+  color: #5c6b7a;
+  margin-bottom: 1.5rem;
+}
+
+.ust-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  background: rgba(0, 118, 129, 0.07);
+  color: var(--ust-primary);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.ust-button {
+  background: linear-gradient(135deg, var(--ust-primary), var(--ust-secondary));
+  border: none;
+  color: #ffffff;
+  padding: 0.75rem 1.4rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: transform 0.08s ease, box-shadow 0.08s ease, opacity 0.08s ease;
+  box-shadow: 0 10px 24px rgba(0, 118, 129, 0.35);
+}
+
+.ust-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(0, 118, 129, 0.45);
+  opacity: 0.95;
+}
+
+.ust-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 6px 16px rgba(0, 118, 129, 0.25);
+}
+
+.ust-output {
+  margin-top: 1.5rem;
+  padding: 0.85rem 1rem;
+  background: #f7fafc;
+  border-radius: 12px;
+  border: 1px dashed rgba(0, 0, 0, 0.08);
+  font-size: 0.9rem;
+  color: #2f3b46;
+  word-break: break-word;
+}
+
+.ust-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
+}
+
+.ust-badge {
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: #ffffff;
+  color: #5c6b7a;
+}
