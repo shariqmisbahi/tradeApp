@@ -138,3 +138,8 @@ git commit -m "Updated to v 1.1"
 
 git push -u origin main
 
+exact command sequence you will run EVERY time you make changes and want to push updated code to Git.
+
+git add . && git commit -m "update" && git push
+
+
