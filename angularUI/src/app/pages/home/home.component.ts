@@ -12,18 +12,16 @@ import { ApiService } from '../../services/api.service';
 })
 export class HomeComponent implements OnInit {
   helloMessage$?: Observable<string>;
-  health$!: Observable<string>;
+  health$!: Observable<any>;
 
   constructor(private readonly api: ApiService) {}
 
   ngOnInit(): void {
-    // Initialize health$ after DI is ready
+    // Load health immediately
     this.health$ = this.api.getHealth();
   }
 
-  // This is used by (click)="callBackend()"
   callBackend(): void {
-    // If your backend expects a name, pass it here
     this.helloMessage$ = this.api.getHello('UST Trade App');
   }
 }

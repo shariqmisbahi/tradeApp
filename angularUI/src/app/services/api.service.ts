@@ -10,10 +10,10 @@ export interface HelloResponse {
 @Injectable({ providedIn: 'root' })
 export class ApiService {
   private readonly http = inject(HttpClient);
-  private readonly baseUrl = 'http://127.0.0.1:8050'; // or your actual API base URL
+  private readonly baseUrl = 'http://127.0.0.1:8050';
 
-  getHealth(): Observable<string> {
-    return this.http.get<string>(`${this.baseUrl}/health`);
+  getHealth(): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/health`);
   }
 
   getHello(name?: string): Observable<string> {
@@ -24,6 +24,6 @@ export class ApiService {
 
     return this.http
       .get<HelloResponse>(`${this.baseUrl}/api/v1/hello`, { params })
-      .pipe(map((res: HelloResponse) => res.message));
+      .pipe(map((res) => res.message));
   }
 }

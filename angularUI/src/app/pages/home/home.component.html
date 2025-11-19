@@ -1,13 +1,17 @@
 <div class="ust-container">
   <h1 class="ust-title">UST Trade App</h1>
 
-  <button class="ust-button" (click)="callBackend()">Call Backend</button>
+  <!-- Hello API button -->
+  <button class="ust-button" (click)="callBackend()">Call Backend API</button>
 
+  <!-- Hello message -->
   <div class="ust-output" *ngIf="helloMessage$ | async as msg">
-    {{ msg }}
+    <b>Hello Response:</b> {{ msg }}
   </div>
 
+  <!-- Health message -->
   <div class="ust-output" *ngIf="health$ | async as health">
-    API Health: {{ health }}
+    <b>Health Check:</b>
+    <pre>{{ health | json }}</pre>
   </div>
 </div>
